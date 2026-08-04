@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>35 Acres &amp; Mining Claim — Property Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --soil: #1C1A17;
+    --rust: #8B4A2F;
+    --rust-bright: #C15A32;
+    --slate: #3D4A47;
+    --pine: #2F5C4B;
+    --pine-bright: #3E7A63;
+    --gold: #B8944D;
+    --sky: #4A7B9D;
+    --clay: #C1683F;
+    --parchment: #EDE6D8;
+    --parchment-dim: #DCD3BF;
+    --line: rgba(28, 26, 23, 0.14);
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+background: var(–parchment);
+color: var(–soil);
+font-family: ‘Space Mono’, monospace;
+line-height: 1.6;
+}
+
+h1, h2, h3, .display {
+font-family: ‘Fraunces’, serif;
+font-weight: 600;
+letter-spacing: -0.01em;
+}
+
+a { color: inherit; }
+
+.wrap {
+max-width: 1100px;
+margin: 0 auto;
+padding: 0 32px;
+}
+
+/* Topographic texture backdrop */
+.topo-bg {
+position: fixed;
+inset: 0;
+z-index: -1;
+pointer-events: none;
+background-image:
+repeating-radial-gradient(ellipse at 20% 30%, transparent 0, transparent 40px, rgba(139,74,47,0.16) 41px, transparent 42px, transparent 80px),
+repeating-radial-gradient(ellipse at 80% 70%, transparent 0, transparent 55px, rgba(47,92,75,0.14) 56px, transparent 57px, transparent 100px),
+linear-gradient(160deg, #F3EDE0 0%, var(–parchment) 40%, #E8DFC9 100%);
+}
+
+/* Header */
+header {
+padding: 28px 0;
+border-bottom: 1px solid var(–line);
+}
+header .wrap {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.mark {
+font-family: ‘Fraunces’, serif;
+font-weight: 700;
+font-size: 1.1rem;
+letter-spacing: 0.02em;
+}
+.mark span { color: var(–rust); }
+nav a {
+text-decoration: none;
+font-size: 0.78rem;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+margin-left: 28px;
+opacity: 0.75;
+transition: opacity 0.2s;
+}
+nav a:hover { opacity: 1; color: var(–rust); }
+
+/* Hero */
+.hero {
+padding: 90px 0 70px;
+position: relative;
+background: linear-gradient(135deg, #2F5C4B 0%, #1C1A17 100%);
+color: var(–parchment);
+}
+.plat-number {
+font-size: 0.75rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–clay);
+margin-bottom: 18px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.plat-number::before {
+content: “”;
+width: 24px;
+height: 1px;
+background: var(–clay);
+display: inline-block;
+}
+.hero h1 {
+font-size: clamp(2.4rem, 6vw, 4.6rem);
+line-height: 1.02;
+max-width: 850px;
+color: var(–parchment);
+}
+.hero .sub {
+margin-top: 24px;
+font-size: 1.05rem;
+max-width: 560px;
+color: var(–parchment-dim);
+opacity: 0.9;
+}
+
+.stat-row {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+gap: 2px;
+margin-top: 56px;
+}
+.stat {
+background: var(–rust);
+padding: 24px 22px;
+color: var(–parchment);
+}
+.stat:nth-child(2) { background: var(–pine); }
+.stat:nth-child(3) { background: var(–sky); }
+.stat:nth-child(4) { background: var(–gold); }
+.stat .num {
+font-family: ‘Fraunces’, serif;
+font-size: 2rem;
+font-weight: 600;
+color: var(–parchment);
+line-height: 1;
+}
+.stat .label {
+font-size: 0.7rem;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+margin-top: 8px;
+color: var(–parchment);
+opacity: 0.85;
+}
+
+/* Section shell */
+section { padding: 80px 0; }
+.section-head {
+display: flex;
+align-items: baseline;
+gap: 16px;
+margin-bottom: 40px;
+border-bottom: 1px solid var(–line);
+padding-bottom: 18px;
+}
+.section-head .tag {
+font-size: 0.75rem;
+color: var(–parchment);
+text-transform: uppercase;
+letter-spacing: 0.1em;
+padding: 4px 11px;
+background: var(–rust);
+border-radius: 3px;
+}
+#gallery .section-head .tag { background: var(–pine); }
+#claim .section-head .tag { background: var(–sky); }
+#access .section-head .tag { background: var(–gold); color: var(–soil); }
+.section-head h2 {
+font-size: 1.9rem;
+}
+
+/* Media placeholders */
+.media-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 18px;
+}
+.media-grid.wide { grid-template-columns: 2fr 1fr; }
+.placeholder {
+aspect-ratio: 4/3;
+border: none;
+background: linear-gradient(150deg, rgba(139,74,47,0.85), rgba(28,26,23,0.9));
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+gap: 8px;
+color: var(–parchment);
+padding: 20px;
+}
+.media-grid .placeholder:nth-child(2) { background: linear-gradient(150deg, rgba(47,92,75,0.85), rgba(28,26,23,0.9)); }
+.media-grid .placeholder:nth-child(3) { background: linear-gradient(150deg, rgba(74,123,157,0.85), rgba(28,26,23,0.9)); }
+.media-grid .placeholder:nth-child(4) { background: linear-gradient(150deg, rgba(184,148,77,0.85), rgba(28,26,23,0.9)); }
+.media-grid .placeholder:nth-child(5) { background: linear-gradient(150deg, rgba(193,104,63,0.85), rgba(28,26,23,0.9)); }
+.media-grid .placeholder:nth-child(6) { background: linear-gradient(150deg, rgba(62,122,99,0.85), rgba(28,26,23,0.9)); }
+.placeholder .icon {
+font-size: 1.6rem;
+color: var(–parchment);
+}
+.placeholder .ph-label {
+font-size: 0.72rem;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+color: var(–parchment-dim);
+}
+.placeholder.video { aspect-ratio: 16/9; background: linear-gradient(150deg, rgba(74,123,157,0.9), rgba(28,26,23,0.92)); }
+.placeholder.video .icon { color: var(–parchment); }
+.placeholder.video .icon::before { content: “▶”; }
+.placeholder.video:nth-of-type(2) { background: linear-gradient(150deg, rgba(193,104,63,0.9), rgba(28,26,23,0.92)); }
+
+.media-grid.wide .placeholder:first-child { aspect-ratio: auto; }
+
+/* Boundary sketch */
+.boundary {
+display: flex;
+justify-content: center;
+padding: 20px 0 10px;
+}
+.boundary svg { width: 100%; max-width: 480px; height: auto; }
+
+/* Details / claim info */
+.detail-grid {
+display: grid;
+grid-template-columns: 1.2fr 1fr;
+gap: 60px;
+}
+.detail-list dt {
+font-size: 0.7rem;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(–rust);
+margin-top: 22px;
+}
+.detail-list dt:first-child { margin-top: 0; }
+.detail-list dd {
+font-family: ‘Fraunces’, serif;
+font-size: 1.15rem;
+font-weight: 500;
+margin-top: 4px;
+}
+
+.note-box {
+border-left: 2px solid var(–gold);
+padding: 18px 22px;
+background: rgba(184, 148, 77, 0.08);
+font-size: 0.85rem;
+color: var(–slate);
+}
+
+/* Access / location */
+.access-list {
+list-style: none;
+}
+.access-list li {
+display: flex;
+gap: 16px;
+padding: 16px 0;
+border-bottom: 1px solid var(–line);
+font-size: 0.92rem;
+}
+.access-list li:last-child { border-bottom: none; }
+.access-list .k {
+min-width: 130px;
+color: var(–rust);
+text-transform: uppercase;
+font-size: 0.7rem;
+letter-spacing: 0.08em;
+padding-top: 2px;
+}
+.access-list li:nth-child(2n) .k { color: var(–pine); }
+.access-list li:nth-child(3n) .k { color: var(–sky); }
+
+/* Contact / footer */
+footer {
+border-top: 1px solid var(–line);
+padding: 60px 0 40px;
+background: linear-gradient(135deg, #2F5C4B 0%, #1C1A17 100%);
+color: var(–parchment);
+}
+.contact-block h2 {
+font-size: 2rem;
+max-width: 480px;
+color: var(–parchment);
+}
+.contact-block .sub {
+color: var(–parchment-dim);
+margin-top: 14px;
+max-width: 460px;
+}
+.contact-row {
+margin-top: 32px;
+display: flex;
+gap: 40px;
+flex-wrap: wrap;
+}
+.contact-row .item .label {
+font-size: 0.7rem;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(–clay);
+}
+.contact-row .item .val {
+font-family: ‘Fraunces’, serif;
+font-size: 1.1rem;
+margin-top: 4px;
+color: var(–parchment);
+}
+.fine-print {
+margin-top: 56px;
+padding-top: 24px;
+border-top: 1px solid rgba(237,230,216,0.2);
+font-size: 0.72rem;
+color: var(–parchment-dim);
+opacity: 0.7;
+line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+.detail-grid { grid-template-columns: 1fr; gap: 40px; }
+.media-grid, .media-grid.wide { grid-template-columns: 1fr 1fr; }
+nav a { margin-left: 16px; font-size: 0.7rem; }
+.hero { padding: 60px 0 40px; }
+}
+
+@media (max-width: 480px) {
+.media-grid, .media-grid.wide { grid-template-columns: 1fr; }
+header .wrap { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+html { scroll-behavior: auto; }
+}
+
+a:focus-visible, button:focus-visible {
+outline: 2px solid var(–rust);
+outline-offset: 3px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="topo-bg"></div>
+
+<header>
+  <div class="wrap">
+    <div class="mark">Section 14 <span>· Parcel 35</span></div>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#claim">The Claim</a>
+      <a href="#access">Access</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="overview">
+  <div class="wrap">
+    <div class="plat-number">Recorded Plat No. 000-000</div>
+    <h1>35 acres of unimproved land, with an active mining claim attached.</h1>
+    <p class="sub">Open ground, mineral rights, and room to build — offered as a single parcel. Replace this line with a short description of the terrain, elevation, and what makes this piece worth walking.</p>
+
+```
+<div class="stat-row">
+  <div class="stat">
+    <div class="num">35.0</div>
+    <div class="label">Acres Total</div>
+  </div>
+  <div class="stat">
+    <div class="num">1</div>
+    <div class="label">Mining Claim</div>
+  </div>
+  <div class="stat">
+    <div class="num">—</div>
+    <div class="label">Elevation (ft)</div>
+  </div>
+  <div class="stat">
+    <div class="num">—</div>
+    <div class="label">Miles to Town</div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">02</span>
+      <h2>Photo &amp; Video Gallery</h2>
+    </div>
+    <div class="media-grid">
+      <div class="placeholder"><div class="icon">▢</div><div class="ph-label">Photo — Property Entrance</div></div>
+      <div class="placeholder"><div class="icon">▢</div><div class="ph-label">Photo — Terrain View</div></div>
+      <div class="placeholder"><div class="icon">▢</div><div class="ph-label">Photo — Boundary Marker</div></div>
+      <div class="placeholder"><div class="icon">▢</div><div class="ph-label">Photo — Claim Site</div></div>
+      <div class="placeholder"><div class="icon">▢</div><div class="ph-label">Photo — Water Source</div></div>
+      <div class="placeholder"><div class="icon">▢</div><div class="ph-label">Photo — Access Road</div></div>
+    </div>
+    <div class="media-grid wide" style="margin-top: 18px;">
+      <div class="placeholder video"><div class="icon"></div><div class="ph-label">Video — Full Property Walkthrough</div></div>
+      <div class="placeholder video"><div class="icon"></div><div class="ph-label">Video — Drone Overview</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="claim">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">03</span>
+      <h2>Parcel &amp; Claim Details</h2>
+    </div>
+    <div class="detail-grid">
+      <div>
+        <dl class="detail-list">
+          <dt>Total Acreage</dt>
+          <dd>35.0 acres, unimproved</dd>
+          <dt>Claim Type</dt>
+          <dd>Add: lode / placer / other</dd>
+          <dt>Claim Name &amp; Number</dt>
+          <dd>Add BLM/state claim ID</dd>
+          <dt>Legal Description</dt>
+          <dd>Add township, range, section</dd>
+          <dt>County / State</dt>
+          <dd>Add location</dd>
+          <dt>Zoning</dt>
+          <dd>Add designation, if any</dd>
+          <dt>Utilities</dt>
+          <dd>Add: off-grid / power at road / etc.</dd>
+        </dl>
+      </div>
+      <div>
+        <div class="boundary">
+          <svg viewBox="0 0 300 260" fill="none" stroke="#2F5C4B" stroke-width="2">
+            <polygon points="40,60 190,30 270,110 230,220 90,230 30,150" stroke-dasharray="6 5" fill="rgba(74,123,157,0.08)"/>
+            <circle cx="40" cy="60" r="3.5" fill="#C1683F"/>
+            <circle cx="190" cy="30" r="3.5" fill="#C1683F"/>
+            <circle cx="270" cy="110" r="3.5" fill="#C1683F"/>
+            <circle cx="230" cy="220" r="3.5" fill="#C1683F"/>
+            <circle cx="90" cy="230" r="3.5" fill="#C1683F"/>
+            <circle cx="30" cy="150" r="3.5" fill="#C1683F"/>
+            <text x="150" y="135" font-family="Space Mono" font-size="11" fill="#3D4A47" text-anchor="middle" stroke="none">approx. boundary</text>
+          </svg>
+        </div>
+        <div class="note-box" style="margin-top: 20px;">
+          Diagram is a rough sketch, not a surveyed boundary. Replace with an actual plat map or survey graphic when available.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">04</span>
+      <h2>Location &amp; Access</h2>
+    </div>
+    <ul class="access-list">
+      <li><span class="k">Nearest Town</span><span>Add nearest town and drive time</span></li>
+      <li><span class="k">Road Access</span><span>Add: paved / gravel / seasonal 4x4 only</span></li>
+      <li><span class="k">Coordinates</span><span>Add approximate GPS coordinates</span></li>
+      <li><span class="k">Terrain</span><span>Add: forested / open / mountainous, etc.</span></li>
+      <li><span class="k">Water Rights</span><span>Add if applicable</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-block">
+      <h2>Interested in the parcel?</h2>
+      <p class="sub">Reach out for the full survey packet, claim documentation, or to arrange a site visit.</p>
+      <div class="contact-row">
+        <div class="item">
+          <div class="label">Contact Name</div>
+          <div class="val">Add name</div>
+        </div>
+        <div class="item">
+          <div class="label">Phone</div>
+          <div class="val">Add phone</div>
+        </div>
+        <div class="item">
+          <div class="label">Email</div>
+          <div class="val">Add email</div>
+        </div>
+      </div>
+    </div>
+    <div class="fine-print">
+      This page is for general informational purposes only and does not constitute a legal offer, title guarantee, or claim verification. Buyers should independently verify acreage, claim status, and boundaries through official county and BLM/state mining records.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
