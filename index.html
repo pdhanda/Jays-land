@@ -108,6 +108,15 @@
     color: #4A2E1E;
     opacity: 0.95;
   }
+  .hero .sub .divider {
+    display: inline-block;
+    margin: 0 12px;
+    font-size: 0.85rem;
+    color: #1C1A17;
+    font-weight: 700;
+    vertical-align: middle;
+    opacity: 0.9;
+  }
 
   .stat-row {
     display: grid;
@@ -161,6 +170,7 @@
     background: var(--rust);
     border-radius: 3px;
   }
+  #photos .section-head .tag { background: var(--clay); }
   #gallery .section-head .tag { background: var(--pine); }
   #claim .section-head .tag { background: var(--sky); }
   #access .section-head .tag { background: var(--gold); color: var(--soil); }
@@ -231,6 +241,30 @@
   }
 
   .media-grid.wide .placeholder:first-child { aspect-ratio: auto; }
+
+  /* Photo gallery */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .photo-tile {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--parchment-dim);
+  }
+  .photo-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 760px) {
+    .photo-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .photo-grid { grid-template-columns: 1fr; }
+  }
 
   /* Boundary sketch */
   .boundary {
@@ -368,7 +402,8 @@
     <div class="mark">Battle Mountain <span>· Eagle County, CO</span></div>
     <nav>
       <a href="#overview">Overview</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#photos">Photos</a>
+      <a href="#gallery">Videos</a>
       <a href="#claim">The Claim</a>
       <a href="#access">Access</a>
       <a href="#contact">Contact</a>
@@ -379,7 +414,7 @@
 <section class="hero" id="overview">
   <div class="wrap">
     <h1>30 secluded acres with dramatic views, 20 minutes to Vail.</h1>
-    <p class="sub">In unincorporated Eagle County, no HOA, no neighbors. Easy access. Includes 8 mines with mineral patents. At 9,000' summit of Battle Mountain. Trail system for cross country skiing, mountain biking, and hiking.</p>
+    <p class="sub">Located in unincorporated Eagle County, with easy access, no HOA, and no neighbors <span class="divider">&#9670;</span> Eight mines with mineral patents <span class="divider">&#9670;</span> Situated at the 9,000' summit of Battle Mountain <span class="divider">&#9670;</span> Includes a trail system for cross country skiing, mountain biking, and hiking.</p>
 
     <div class="stat-row">
       <div class="stat">
@@ -402,10 +437,25 @@
   </div>
 </section>
 
-<section id="gallery">
+<section id="photos">
   <div class="wrap">
     <div class="section-head">
       <span class="tag">02</span>
+      <h2>Photo Gallery</h2>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-tile"><img src="images/photo-01.jpg" alt="Property photo 1" loading="lazy"></div>
+      <div class="photo-tile"><img src="images/photo-02.jpg" alt="Property photo 2" loading="lazy"></div>
+      <div class="photo-tile"><img src="images/photo-03.jpg" alt="Property photo 3" loading="lazy"></div>
+      <div class="photo-tile"><img src="images/photo-04.jpg" alt="Property photo 4" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">03</span>
       <h2>Video Gallery</h2>
     </div>
     <div class="video-stack">
@@ -432,7 +482,7 @@
 <section id="claim">
   <div class="wrap">
     <div class="section-head">
-      <span class="tag">03</span>
+      <span class="tag">04</span>
       <h2>Parcel &amp; Claim Details</h2>
     </div>
     <div class="detail-grid">
@@ -449,7 +499,7 @@
           <dt>Zoning</dt>
           <dd>Resource</dd>
           <dt>Utilities</dt>
-          <dd>Add: off-grid / power at road / etc.</dd>
+          <dd>Electric at road, well permit included, must drill well &amp; septic</dd>
         </dl>
       </div>
       <div>
@@ -476,15 +526,14 @@
 <section id="access">
   <div class="wrap">
     <div class="section-head">
-      <span class="tag">04</span>
+      <span class="tag">05</span>
       <h2>Location &amp; Access</h2>
     </div>
     <ul class="access-list">
-      <li><span class="k">Nearest Town</span><span>Add nearest town and drive time</span></li>
-      <li><span class="k">Road Access</span><span>Add: paved / gravel / seasonal 4x4 only</span></li>
-      <li><span class="k">Coordinates</span><span>Add approximate GPS coordinates</span></li>
-      <li><span class="k">Terrain</span><span>Add: forested / open / mountainous, etc.</span></li>
-      <li><span class="k">Water Rights</span><span>Add if applicable</span></li>
+      <li><span class="k">Nearest Town</span><span>Minturn, 6 miles</span></li>
+      <li><span class="k">Highway Access</span><span>I-70, 11 minutes</span></li>
+      <li><span class="k">Road Access</span><span>Dirt &amp; gravel</span></li>
+      <li><span class="k">Terrain</span><span>Mountainous, pine &amp; aspen forest, cliffs, meadow</span></li>
     </ul>
   </div>
 </section>
@@ -497,15 +546,19 @@
       <div class="contact-row">
         <div class="item">
           <div class="label">Contact Name</div>
-          <div class="val">Add name</div>
+          <div class="val">Jennifer Coulson</div>
+        </div>
+        <div class="item">
+          <div class="label">Brokerage</div>
+          <div class="val">Coldwell Banker Distinctive Properties</div>
         </div>
         <div class="item">
           <div class="label">Phone</div>
-          <div class="val">Add phone</div>
+          <div class="val">970.331.9011</div>
         </div>
         <div class="item">
           <div class="label">Email</div>
-          <div class="val">Add email</div>
+          <div class="val"><a href="mailto:VailCabo@iCloud.com">VailCabo@iCloud.com</a></div>
         </div>
       </div>
     </div>
