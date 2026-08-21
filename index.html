@@ -170,8 +170,28 @@
     background: var(--rust);
     border-radius: 3px;
   }
+  #photos {
+    background: linear-gradient(180deg, #A8593A 0%, #A9915F 100%);
+  }
+  #gallery {
+    background: linear-gradient(180deg, #A9915F 0%, #5C7A63 100%);
+  }
+  #photos .section-head, #gallery .section-head {
+    border-bottom-color: rgba(58,52,44,0.2);
+  }
+  #photos .section-head h2 {
+    color: var(--soil);
+  }
+  #gallery .section-head h2 {
+    color: var(--soil);
+  }
   #photos .section-head .tag { background: var(--clay); }
   #gallery .section-head .tag { background: var(--pine); }
+  #gallery .note-box {
+    background: rgba(255,255,255,0.35);
+    color: var(--slate);
+    border-left-color: var(--gold);
+  }
   #claim .section-head .tag { background: var(--sky); }
   #access .section-head .tag { background: var(--gold); color: var(--soil); }
   .section-head h2 {
@@ -437,7 +457,6 @@
 <section id="photos">
   <div class="wrap">
     <div class="section-head">
-      <span class="tag">02</span>
       <h2>Photo Gallery</h2>
     </div>
     <div class="photo-grid">
@@ -452,7 +471,6 @@
 <section id="gallery">
   <div class="wrap">
     <div class="section-head">
-      <span class="tag">03</span>
       <h2>Video Gallery</h2>
     </div>
     <div class="video-stack">
@@ -460,10 +478,10 @@
         <iframe src="https://www.youtube.com/embed/lj93kFlCSJ8?loop=1&autoplay=1" title="Property video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/2lH6HLLjDVI?loop=1&autoplay=1" title="Property video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/2lH6HLLjDVI?loop=1" title="Property video 2" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/x7jAl_mgGrs?loop=1&autoplay=1" title="Property video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/x7jAl_mgGrs?loop=" title="Property video 3" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
     <div class="note-box" style="margin-top: 24px;">
@@ -476,7 +494,6 @@
 <section id="claim">
   <div class="wrap">
     <div class="section-head">
-      <span class="tag">04</span>
       <h2>Parcel &amp; Claim Details</h2>
     </div>
     <div class="detail-grid">
@@ -520,7 +537,6 @@
 <section id="access">
   <div class="wrap">
     <div class="section-head">
-      <span class="tag">05</span>
       <h2>Location &amp; Access</h2>
     </div>
     <ul class="access-list">
