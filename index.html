@@ -245,7 +245,7 @@
   /* Photo gallery */
   .photo-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 18px;
   }
   .photo-tile {
@@ -258,9 +258,6 @@
     height: 100%;
     object-fit: cover;
     display: block;
-  }
-  @media (max-width: 760px) {
-    .photo-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 480px) {
     .photo-grid { grid-template-columns: 1fr; }
